@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-Live Demo : http://yummyfran.github.io/iplay
+Live Demo : http://yummyfran.github.io/iPlay
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
