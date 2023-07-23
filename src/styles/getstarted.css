@@ -1,0 +1,72 @@
+.getstarted {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 2.5rem;
+    padding-inline: 2rem;
+}
+
+.getstarted--title {
+    text-align: center;
+}
+
+.getstarted--title p {
+    font-size: var(--font-small);
+}
+
+.getstarted form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+}
+
+.getstarted input {
+    display: none;
+}
+
+.getstarted .upload {
+    grid-column: 1/5;
+    text-align: center;
+    border: 2px solid var(--color-accent);
+    color: var(--color-accent);
+    padding: 1rem;
+    border-radius: 3rem;
+}
+
+.getstarted button {
+    background-color: var(--color-accent);
+    border: 2px solid var(--color-accent);
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 3rem;
+    font-family: 'Poppins';
+    color: var(--color-light);
+    cursor: pointer;
+}
+
+.getstarted button:disabled {
+    opacity:.7;
+    cursor: default;
+}
+
+.getstarted label.avatarlabel {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.getstarted input[type='radio']:checked+label>img {
+    scale: 1.6;
+}
+
+.getstarted img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    scale: 1.9;
+    pointer-events: none;
+}

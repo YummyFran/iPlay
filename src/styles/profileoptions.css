@@ -1,0 +1,35 @@
+.options {
+    display: flex;
+    flex-direction: column;
+}
+
+.option {
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 300;
+}
+
+.option img {
+    width: 1.5rem;
+}
+
+.option span {
+    margin-right: auto;
+}
+
+.option::after {
+    content: '';
+    height: 0.5rem;
+    width: 0.5rem;
+    border-top: 1px solid var(--color-dark);
+    border-right: 1px solid var(--color-dark);
+    rotate: 45deg;
+}
+
+hr {
+    border: none;
+    border-top: 0.1px solid #d4d4d4;
+    margin-block: 0.3em;
+}

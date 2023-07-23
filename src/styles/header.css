@@ -1,0 +1,69 @@
+.header {
+    display: flex;
+    flex-direction: column;
+}
+
+.header--top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+
+.header--top button {
+    background-color: white;
+    color:  var(--color-accent);
+    border: 1px solid var(--color-accent);
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.header--top button:hover {
+    opacity: 0.9;
+}
+
+.header--profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header--profile .img {
+    width: 3rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.header--profile .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header--profile .img img.default-avatar {
+    scale: 1.9;
+}
+
+.header--links {
+    display: flex;
+}
+
+.header--links a {
+    flex: 1;
+}
+
+.header--links div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    font-size: var(--font-smaller);
+    gap: 0.5rem;
+}
+
+.header--links div img {
+    width: 2rem;
+}

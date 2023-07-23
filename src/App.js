@@ -1,25 +1,83 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
 
-function App() {
+import Login from './pages/Login'
+import Signup from './pages/Signup'
+import GetStarted from './pages/GetStarted'
+import Home from './pages/Home'
+import VoiceRoom from './pages/VoiceRoom'
+import Chats from './pages/Chats'
+import Discover from './pages/Discover'
+import Profile from './pages/Profile'
+import Ranking from './pages/Ranking'
+import FunCards from './pages/FunCards'
+import Tasks from './pages/Tasks'
+import Friends from './pages/Friends'
+import PageNotFound from './pages/PageNotFound'
+
+import SpaceWarewolf from './pages/Games/SpaceWarewolf'
+import MicGrab from './pages/Games/MicGrab'
+import LinkSnap from './pages/Games/LinkSnap'
+import SurvivalChallenge from './pages/Games/SurvivalChallenge'
+import WhosTheSpy from './pages/Games/WhosTheSpy'
+import CrazyAlpaca from './pages/Games/CrazyAlpaca'
+import GuessMyDrawing from './pages/Games/GuessMyDrawing'
+import DefuseMaster from './pages/Games/DefuseMaster'
+
+import Layout from './layouts/Layout'
+
+import "./styles/login.css"
+import "./styles/getstarted.css"
+import "./styles/header.css"
+import "./styles/navbar.css"
+import "./styles/games.css"
+import "./styles/explore.css"
+import "./styles/profileheader.css"
+import "./styles/profileoptions.css"
+import "./styles/discover.css"
+
+const App = () => {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <>
+        <Route path='login' element={<Login />} />
+        <Route path='signup' element={<Signup />} />
+        <Route path='getstarted' element={<GetStarted />} />
+  
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />}/>
+          <Route path='voicerooms' element={<VoiceRoom />} />
+          <Route path='chats' element={<Chats />} />
+          <Route path='discover' element={<Discover />} />
+          <Route path='profile' element={<Profile />} />
+        </Route>
+        
+        <Route path='games'>
+          <Route path='spacewarewolf' element={<SpaceWarewolf />} />
+          <Route path='micgrab' element={<MicGrab />} />
+          <Route path='linksnap' element={<LinkSnap />} />
+          <Route path='survivalchallenge' element={<SurvivalChallenge />} />
+          <Route path='whosthespy' element={<WhosTheSpy />} />
+          <Route path='crazyalpaca' element={<CrazyAlpaca />} />
+          <Route path='guessmydrawing' element={<GuessMyDrawing />} />
+          <Route path='defusemaster' element={<DefuseMaster />} />
+        </Route>
+
+        <Route>
+          <Route path='ranking' element={<Ranking />} />
+          <Route path='funcards' element={<FunCards />} />
+          <Route path='tasks' element={<Tasks />} />
+          <Route path='friends' element={<Friends />} />
+        </Route>
+
+        <Route path='*' element={<PageNotFound />} />
+      </>
+    )
+  )
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <RouterProvider router={router} />
+  )
 }
 
-export default App;
+export default App
