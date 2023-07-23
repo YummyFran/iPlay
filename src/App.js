@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider, createHashRouter } from 'react-router-dom'
 
 import Login from './pages/Login'
 import Signup from './pages/Signup'
@@ -37,7 +37,7 @@ import "./styles/profileoptions.css"
 import "./styles/discover.css"
 
 const App = () => {
-  const router = createBrowserRouter(
+  const router = createHashRouter(
     createRoutesFromElements(
       <>
         <Route path='login' element={<Login />} />
