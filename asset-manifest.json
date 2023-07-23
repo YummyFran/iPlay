@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/iplay/static/css/main.5734649f.css",
+    "main.js": "/iplay/static/js/main.864a1087.js",
+    "static/media/settings.svg": "/iplay/static/media/settings.fb724d98f6863e1ff1243314459c6b96.svg",
+    "static/media/invite.svg": "/iplay/static/media/invite.b5217741e0bfa22c125f6878626dcaa8.svg",
+    "static/media/stats.svg": "/iplay/static/media/stats.f23d4d725e12850432b364388df8e80e.svg",
+    "static/media/visitors.svg": "/iplay/static/media/visitors.483f7604b711969dfbe12da0f516b899.svg",
+    "static/media/ranking.svg": "/iplay/static/media/ranking.cc1c9d805cdb7229ce8ec8251948fe7e.svg",
+    "static/media/moments.svg": "/iplay/static/media/moments.d13cb7eac9f172fc57d506b05e0fe029.svg",
+    "static/media/games.svg": "/iplay/static/media/games.b839539c771094445ff300880037b636.svg",
+    "static/media/help.svg": "/iplay/static/media/help.d9ac2331a09e03dd90a086cbcc5b8948.svg",
+    "static/media/contributions.svg": "/iplay/static/media/contributions.5b7cab3e551c2e5ec034d110a2a116d7.svg",
+    "static/media/playshow.svg": "/iplay/static/media/playshow.a01b4f89f17b75347b25c8fad8e66f32.svg",
+    "static/media/voicematch.svg": "/iplay/static/media/voicematch.dcd6a015f3eb65f7717108b6886ec310.svg",
+    "static/media/family.svg": "/iplay/static/media/family.9ed5cf6aa775be3e150eed6727e3e4c9.svg",
+    "static/media/shop.svg": "/iplay/static/media/shop.eebccecab6ac2e5248b76d6a0c3e5b0b.svg",
+    "static/media/church.svg": "/iplay/static/media/church.4486f60d377728cceab8af3f863fe6af.svg",
+    "static/media/mentorship.svg": "/iplay/static/media/mentorship.12a9a76ea26d0840e364bfb8e9cb56da.svg",
+    "static/media/friends.svg": "/iplay/static/media/friends.193d8939547b5eb3b143a5ed333f7215.svg",
+    "static/media/vip.svg": "/iplay/static/media/vip.9a0e7b16f98bbab80a831e5a5dd13eee.svg",
+    "static/media/interest.svg": "/iplay/static/media/interest.43dadcc2fd5777486934fdc5b3dda9d4.svg",
+    "static/media/lovehome.svg": "/iplay/static/media/lovehome.35e9eb5add3728a528fe32441d3113a5.svg",
+    "static/media/cards.svg": "/iplay/static/media/cards.2355899973c4513a196a9e1ecadb8208.svg",
+    "static/media/facebook.svg": "/iplay/static/media/facebook.a1ceff3656d019267bc30f8ed61e1a41.svg",
+    "static/media/tasks.svg": "/iplay/static/media/tasks.d000cdd5b03373bb1562b3e4de992dcd.svg",
+    "static/media/nearby.svg": "/iplay/static/media/nearby.08fc6283db95712113de9ba079cfe2e2.svg",
+    "static/media/me.svg": "/iplay/static/media/me.df6bca372b317d3469b53d144405a41d.svg",
+    "static/media/voice.svg": "/iplay/static/media/voice.014e5ddede74efefaedc54d20587272c.svg",
+    "static/media/chats.svg": "/iplay/static/media/chats.46281e6dbb71752f45d8184c00f6e0b3.svg",
+    "static/media/google.svg": "/iplay/static/media/google.330a2dc7f18d7502647dc5d6f93812ec.svg",
+    "static/media/discover.svg": "/iplay/static/media/discover.b3d7083e689557729e1a44822b7a645d.svg",
+    "index.html": "/iplay/index.html",
+    "main.5734649f.css.map": "/iplay/static/css/main.5734649f.css.map",
+    "main.864a1087.js.map": "/iplay/static/js/main.864a1087.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5734649f.css",
+    "static/js/main.864a1087.js"
+  ]
+}
