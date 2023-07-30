@@ -73,14 +73,14 @@ To get started, simply sign up for an account, set up your profile, and start ex
 
 ## Usage
 
-[hehe]
+[hehe, I'll post some screenshots here]
 
 
 ## Technologies Used
 
 Our platform is built using cutting-edge web technologies to ensure a smooth and seamless experience for our users. Some of the technologies used include:
 
-- Front-end: React.js
+- Front-end: React.js, CSS
 - Back-end: Firebase
 - Real-time Communication: Firestore
 
