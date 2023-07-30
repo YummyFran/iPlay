@@ -1,6 +1,16 @@
-import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore"
+import { 
+    doc, 
+    getDoc, 
+    setDoc, 
+    updateDoc, 
+    collection, 
+    getDocs, 
+    limit, 
+    query, 
+    orderBy, 
+    serverTimestamp,
+} from "firebase/firestore"
 import { db } from "../utils/firebase"
-import { useUser } from "../providers/UserProvider"
 
 export const addUser = async (user) => {
     await setDoc(doc(db, "users", user.uid), {
@@ -8,7 +18,8 @@ export const addUser = async (user) => {
         displayName: user.displayName,
         photoURL: user.photoURL,
         bio: "This user is new",
-        status: "online"
+        status: "online",
+        createdAt: serverTimestamp(),
     })
 }
 
@@ -24,9 +35,15 @@ export const getUserData = async (user) => {
     return res.data()
 }
 
-// export const useUserData = async () => {
-//     const [user, loading] = useUser()
-//     const res = await getUserData(user)
+export const getUsers = async () => {
+    const q = query(collection(db, "users"), limit(20), orderBy('createdAt'))
+    const snapShot = await(getDocs(q))
 
-//     return [ res, loading ]
-// }
+    let users = []
+
+    snapShot.forEach(doc => {
+        users.push(doc.data())
+    })
+
+    return users
+}

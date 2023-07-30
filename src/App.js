@@ -35,6 +35,7 @@ import "./styles/explore.css"
 import "./styles/profileheader.css"
 import "./styles/profileoptions.css"
 import "./styles/discover.css"
+import "./styles/chats.css"
 
 const App = () => {
   const router = createHashRouter(

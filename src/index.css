@@ -4,6 +4,7 @@
     --font-large: 2.5rem;
     --font-bigger: 1.8rem;
     --font-big: 1.3rem;
+    --font-normal: 1rem;
     --font-small: 0.8rem;
     --font-smaller: 0.7rem;
 
@@ -12,6 +13,8 @@
     --color-gray: #4e4e4e;
     --color-accent: #3b8efa;
     --color-highlight: #5da0f8;
+
+    --maximum-width: 415px;
 }
 *, *::before, *::after {
     margin: 0;
@@ -20,13 +23,15 @@
 }
 
 body {
+    margin-inline: auto;
+    max-width: var(--maximum-width);
     height: 100vh;
     background-color: #fff;
     font-family: 'Poppins', sans-serif;
 }
 
 section {
-    padding-bottom: 5rem;
+    padding-bottom: 6rem;
 }
 
 section.container {

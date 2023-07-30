@@ -1,8 +1,16 @@
-import React from 'react'
-import { collection, query, where, getDoc } from "firebase/firestore";
-import { db } from '../../utils/firebase';
+import React, { useState, useEffect } from 'react'
+import { getUsers } from '../../hooks/iplay-db';
+import { useUser } from '../../providers/UserProvider';
 
 const Explore = () => {
+    const [currUser] = useUser()
+    const [newUsers, setNewUsers] = useState()
+
+    console.log(currUser)
+    useEffect(()=>{
+        getUsers()
+        .then(users => setNewUsers(users))
+    }, [])
 
     return (
         <div className='explore'>
@@ -11,26 +19,23 @@ const Explore = () => {
                 <span>Enable GPS to explore more</span>
             </div>
             <div className="explore--list">
-                <div className="explore--user">
-                    <div className="profile">
-                        <div className="display-picture"></div>
-                        <div className="display-name">
-                            <h3>Name Here</h3>
-                            <span>User's custom bio here</span>
+                {newUsers && newUsers.map(user => (
+                    !(currUser.uid == user.uid) &&
+                    <div className="explore--user">
+                        <div className="profile">
+                            <div className="display-picture" style={{
+                                backgroundImage: `url(${user.photoURL})`,
+                                backgroundSize: `${user.defaultAvatar ? '10rem': 'contain'}`,
+                                backgroundPosition: 'center'
+                            }}></div>
+                            <div className="display-name">
+                                <h3>{user.displayName}</h3>
+                                <span>{user.bio}</span>
+                            </div>
                         </div>
-                    </div>
-                    <div className="status">Status</div>
+                    <div className="status">{user.status}</div>
                 </div>
-                <div className="explore--user">
-                    <div className="profile">
-                        <div className="display-picture"></div>
-                        <div className="display-name">
-                            <h3>Name Here</h3>
-                            <span>This user is new</span>
-                        </div>
-                    </div>
-                    <div className="status">In Voice Room</div>
-                </div>
+                ))}
             </div>
         </div>
     )

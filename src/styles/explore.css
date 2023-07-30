@@ -19,6 +19,11 @@
     gap: 1rem;
 }
 
+.explore--list h4 {
+    text-align: center;
+    color: rgb(147, 147, 147);
+}
+
 .explore--user {
     display: flex;
     align-items: center;
@@ -38,14 +43,18 @@
     border-radius: 50%;
 }
 
+.display-name h3 {
+    font-size: var(--font-normal);
+}
+
 .display-name span {
     font-size: var(--font-small);
 }
 
 .status {
     font-size: var(--font-smaller);
-    background-color: #9ed79e;
-    color: #319231;
+    background-color: #4acb4a80;
+    color: #458f45;
     padding: 0.2em 0.7em;
     border-radius: 1em;
     font-weight: 400;

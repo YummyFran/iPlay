@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useId } from 'react'
 import { Link } from 'react-router-dom'
 
 import family from '../assets/family.svg'
@@ -43,9 +43,9 @@ const Discover = () => {
     },
   ]
 
-  const todo = todos.map(el => {
+  const todo = todos.map((el, id) => {
     return (
-      <Link to={el.to} className={`todo ${el.to}`}>
+      <Link to={el.to} className={`todo ${el.to}`} key={id}>
         <img src={el.icon} alt={el.to} />
         <span>{el.title}</span>
       </Link>
