@@ -16,7 +16,6 @@ Visit the website: [Link to iPlay Website](https://yummyfran.github.io/iPlay)
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
-- [License](#license)
 - [Contact](#contact)
 
 
