@@ -5,6 +5,7 @@
     --font-bigger: 1.8rem;
     --font-big: 1.3rem;
     --font-normal: 1rem;
+    --font-below-normal: 0.9rem;
     --font-small: 0.8rem;
     --font-smaller: 0.7rem;
 
@@ -34,7 +35,7 @@ section {
     padding-bottom: 6rem;
 }
 
-section.container {
+.container {
     padding-inline: 1.5rem;
 }
 

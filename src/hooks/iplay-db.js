@@ -31,12 +31,12 @@ export const updateUser = async (user, credential) => {
 }
 
 export const getUserData = async (user) => {
-    const res = await getDoc(doc(db, "users", user.uid))
+    const res = await getDoc(doc(db, "users", user))
     return res.data()
 }
 
 export const getUsers = async () => {
-    const q = query(collection(db, "users"), limit(20), orderBy('createdAt'))
+    const q = query(collection(db, "users"), limit(20), orderBy('createdAt', 'desc'))
     const snapShot = await(getDocs(q))
 
     let users = []

@@ -1,0 +1,151 @@
+.user-profile {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-profile .actions {
+    position: fixed;
+    z-index: 2;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    margin-inline: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.user-profile .actions * {
+    background-color: transparent;
+    border: none;
+    border-radius: 2rem;
+    padding: 1rem;
+    font-size: var(--font-normal);
+    color: white;
+    display: flex;
+    gap: 0.2rem;
+    justify-content: center;
+    align-items: center;
+    font-weight: 100;
+}
+
+.user-profile .actions * img {
+    width: 1.5rem;
+    padding: 0;
+    filter: invert(1) brightness(2);
+}
+
+.user-profile .actions .add-friend {
+    background-image: linear-gradient(to right, #5dc781, 75%, #91d060);
+}
+
+.user-profile .actions .chat {
+    background-image: linear-gradient(to right, #5aaee6, 65%, #7fd8fd);
+}
+
+.user-profile .top-options {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    color: white;
+    text-shadow: 2px 2px 6px black;
+}
+
+.user-profile .top-options .back {
+    font-size: var(--font-bigger);
+    font-weight: 100;
+}
+
+.user-profile .top-options .menu {
+    font-weight: 800;
+}
+
+.user-profile .picture {
+    height: 45vh;
+    position: sticky;
+    top: 0;
+}
+
+.user-profile .picture img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.user-profile .wall {
+    height: 80vh;
+    z-index: 1;
+    background-color: white;
+    padding-block: 1.5rem;
+    margin-top: -2rem;
+    border-radius: 1.5rem 1.5rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.user-profile .wall .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-profile .wall .title::after {
+    content: '>';
+    font-size: var(--font-big);
+    font-weight: 100;
+}
+
+.user-profile .wall .about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-profile .wall .about .user-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-profile .wall .about .user-data .progress {
+    display: flex;
+    gap: 0.4rem;
+    font-size: var(--font-smaller);
+
+}
+
+.user-profile .wall .about .user-data .progress .level {
+    background-color: rgb(255, 134, 41);
+    color: white;
+    padding-inline: 0.4rem;
+}
+
+.user-profile .wall .about .user-data .name {
+    font-weight: 600;
+}
+
+.user-profile .wall .about .geo-position {
+    font-size: var(--font-small);
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    color: var(--color-gray);
+}
+
+.user-profile .wall .signature  {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.user-profile .wall .signature .bio {
+    font-size: var(--font-below-normal);
+}

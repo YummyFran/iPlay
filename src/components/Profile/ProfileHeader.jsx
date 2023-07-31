@@ -45,7 +45,7 @@ const ProfileHeader = () => {
     })
 
     if(loading && !avatar) return <Loading />
-    getUserData(user)
+    getUserData(user.uid)
         .then(res => setAvatar(res.defaultAvatar))
 
 

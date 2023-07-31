@@ -14,6 +14,7 @@ import FunCards from './pages/FunCards'
 import Tasks from './pages/Tasks'
 import Friends from './pages/Friends'
 import PageNotFound from './pages/PageNotFound'
+import UserProfile from './pages/UserProfile'
 
 import SpaceWarewolf from './pages/Games/SpaceWarewolf'
 import MicGrab from './pages/Games/MicGrab'
@@ -36,6 +37,7 @@ import "./styles/profileheader.css"
 import "./styles/profileoptions.css"
 import "./styles/discover.css"
 import "./styles/chats.css"
+import "./styles/userprofile.css"
 
 const App = () => {
   const router = createHashRouter(
@@ -52,6 +54,8 @@ const App = () => {
           <Route path='discover' element={<Discover />} />
           <Route path='profile' element={<Profile />} />
         </Route>
+
+        <Route path='profile/:uid' element={<UserProfile />} />
         
         <Route path='games'>
           <Route path='spacewarewolf' element={<SpaceWarewolf />} />

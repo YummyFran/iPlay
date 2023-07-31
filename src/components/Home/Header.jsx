@@ -45,7 +45,7 @@ const Header = () => {
         )
     })
     
-    getUserData(user)
+    getUserData(user.uid)
         .then(res => setAvatar(res.defaultAvatar))
 
     if(loading) return <span>loading...</span>

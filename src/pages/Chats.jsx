@@ -5,7 +5,7 @@ import plus from '../assets/plus.svg'
 const Chats = () => {
   const [chats, setChats] = useState([])
 
-  
+
 
   return (
     <section className='chats container'>
@@ -14,7 +14,9 @@ const Chats = () => {
         <img src={contacts} alt="contacts"/>
         <img src={plus} alt="add" />
       </div>
-
+      <div className="chat-list">
+        
+      </div>
     </section>
   )
 }
