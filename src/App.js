@@ -55,7 +55,7 @@ const App = () => {
           <Route path='profile' element={<Profile />} />
         </Route>
 
-        <Route path='profile/:uid' element={<UserProfile />} />
+        <Route path='user/:uid' element={<UserProfile />} />
         
         <Route path='games'>
           <Route path='spacewarewolf' element={<SpaceWarewolf />} />

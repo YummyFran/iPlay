@@ -5,14 +5,16 @@
 
 .user-profile .actions {
     position: fixed;
+    max-width: var(--max-w);
     z-index: 2;
     bottom: 2rem;
     left: 0;
     right: 0;
-    margin-inline: 1.5rem;
+    margin-inline: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+    padding-inline: 1.5rem;
 }
 
 .user-profile .actions * {
@@ -43,11 +45,17 @@
     background-image: linear-gradient(to right, #5aaee6, 65%, #7fd8fd);
 }
 
+.user-profile .actions .send-gift {
+    background-image: linear-gradient(to right, #fc6783, #fea5bc);
+}
+
 .user-profile .top-options {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    max-width: var(--max-w);
+    margin-inline: auto;
     z-index: 2;
     display: flex;
     justify-content: space-between;
@@ -63,7 +71,7 @@
 }
 
 .user-profile .top-options .menu {
-    font-weight: 800;
+    font-weight: 100;
 }
 
 .user-profile .picture {

@@ -16,3 +16,27 @@
     margin-right: auto;
     font-size: var(--font-bigger);
 }
+
+.chats .chat-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.chats .chat-list .contact {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.chats .chat-list .contact .dp {
+    width: 3rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.chats .chat-list .contact .dp img {
+    width: 100%;
+    object-fit: contain;
+}

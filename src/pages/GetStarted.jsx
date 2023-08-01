@@ -12,7 +12,7 @@ const GetStarted = () => {
     const [isDisabled, setIsDisabled] = useState(true)
     const [selectedAvatar, setSelectedAvatar] = useState()
     const navigate = useNavigate()
-
+    console.log("rendered get started")
     const avatars = [
         'https://firebasestorage.googleapis.com/v0/b/iplay-d39eb.appspot.com/o/frame_00_delay-0.4s.gif?alt=media&token=871ec1fa-9186-413f-8e4f-21177d4be1da',
         'https://firebasestorage.googleapis.com/v0/b/iplay-d39eb.appspot.com/o/frame_01_delay-0.4s.gif?alt=media&token=9f5243f1-077b-41c9-8879-4be12710a503',

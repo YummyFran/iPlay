@@ -9,17 +9,50 @@ import {
     query, 
     orderBy, 
     serverTimestamp,
+    onSnapshot,
 } from "firebase/firestore"
 import { db } from "../utils/firebase"
 
 export const addUser = async (user) => {
-    await setDoc(doc(db, "users", user.uid), {
-        uid: user.uid,
-        displayName: user.displayName,
-        photoURL: user.photoURL,
-        bio: "This user is new",
-        status: "online",
-        createdAt: serverTimestamp(),
+    const position = user.photoURL?.search('=s96')
+    const dp = user.photoURL != null ?
+        user.photoURL.slice(0, position + 2) + '200' + user.photoURL.slice(position + 4) :
+        user.photoURL
+
+    navigator.geolocation.getCurrentPosition(async pos => {
+        const location = {  
+            lat: pos.coords.latitude,
+            long: pos.coords.longitude
+        }
+
+        await setDoc(doc(db, "users", user.uid), {
+            uid: user.uid,
+            displayName: user.displayName,
+            photoURL: dp,
+            bio: "This user is new",
+            status: "online",
+            createdAt: serverTimestamp(),
+            currentLocation: location
+        })
+
+        await setDoc(doc(db, "chats", user.uid+user.uid), {
+            messages: []
+        })
+
+        await setDoc(doc(db, "contacts", user.uid), {
+            [user.uid]: {
+                uid: user.uid,
+                displayName: user.displayName,
+                nickname: "Just You",
+                photoURL: dp,
+                date: serverTimestamp()
+            }
+        })
+    },(err) => {
+        console.log(err)
+    }, {
+        enableHighAccuracy : true,
+        timeout: 15 * 1000
     })
 }
 
@@ -46,4 +79,33 @@ export const getUsers = async () => {
     })
 
     return users
+}
+
+export const createChats = async (combinedId) => {
+    await setDoc(doc(db, "chats", combinedId), {
+        messages: []
+    })
+}
+
+export const getChats = async (combinedId) => {
+    const res = await getDoc(doc(db, "chats", combinedId))
+    return res
+}
+
+export const createContact = async (currentUser, user, combinedId) => {
+    await updateDoc(doc(db, "contacts", currentUser.uid), {
+        [combinedId]: {
+            uid: user.uid,
+            displayName: user.displayName,
+            nickname: "",
+            photoURL: user.photoURL,
+            date: serverTimestamp()
+        }
+    })
+}
+
+export const getContact = (currentUser) => {
+    const res =  onSnapshot(doc(db, "contacts", currentUser), res => {
+        return res.data()   
+    })
 }

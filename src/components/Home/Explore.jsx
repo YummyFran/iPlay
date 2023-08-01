@@ -21,7 +21,7 @@ const Explore = () => {
             <div className="explore--list">
                 {newUsers && newUsers.map(user => (
                     !(currUser.uid == user.uid) &&
-                    <Link to={`profile/${user.uid}`} key={user.uid}>
+                    <Link to={`user/${user.uid}`} key={user.uid}>
                         <div className="explore--user">
                             <div className="profile">
                                 <div className="display-picture" style={{

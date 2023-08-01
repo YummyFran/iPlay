@@ -1,18 +1,18 @@
-import React, { useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { auth } from '../../utils/firebase'
 import { signOut } from 'firebase/auth'
 import { useUser } from '../../providers/UserProvider'
 import { getUserData } from '../../hooks/iplay-db'
+import { Link } from 'react-router-dom'
 
 import ranking from '../../assets/ranking.svg'
 import cards from '../../assets/cards.svg'
 import tasks from '../../assets/tasks.svg'
 import friends from '../../assets/friends.svg'
-import { Link } from 'react-router-dom'
 
 const Header = () => {
     const [user, loading] = useUser()
-    const [avatar, setAvatar] = useState()
+    const [currUser, setCurrUser] = useState(null)
 
     const links = [
         {
@@ -44,23 +44,24 @@ const Header = () => {
             </Link>
         )
     })
-    
-    getUserData(user.uid)
-        .then(res => setAvatar(res.defaultAvatar))
 
-    if(loading) return <span>loading...</span>
+    useLayoutEffect(() => {
+        getUserData(user.uid)
+            .then(res => setCurrUser(res))
+    }, [])
+    
     return (
         <div className='header'>
             <div className="header--top">
                 <div className="header--profile">
-                    <div className="img">
+                    <Link to={`user/${currUser?.uid}`} className="img">
                         <img
-                            src={user.photoURL} 
-                            alt={`${user.displayName.split(' ')[0]}'s profile`}
-                            className={avatar ? "default-avatar" : ""}
+                            src={currUser ? currUser?.photoURL : user.photoURL} 
+                            alt={`${currUser?.displayName.split(' ')[0]}'s profile`}
+                            className={currUser?.defaultAvatar ? "default-avatar" : ""}
                         />
-                    </div>
-                    <p className="header--name">{user.displayName.split(' ')[0]}</p>
+                    </Link>
+                    <p className="header--name">{(currUser ? currUser : user).displayName.split(' ')[0]}</p>
                 </div>
                 <div className="header--events">
                     <button onClick={() => signOut(auth)}>Log out</button>
