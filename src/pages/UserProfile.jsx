@@ -48,6 +48,7 @@ const UserProfile = () => {
             } else {
                 console.log("already created")
             }
+            back('/chats')
         } catch (err) {
             console.log(err)
         }

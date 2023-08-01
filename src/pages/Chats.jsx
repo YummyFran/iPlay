@@ -31,12 +31,12 @@ const Chats = () => {
         <img src={plus} alt="add" />
       </div>
       <div className="chat-list">
-        {chats != undefined && Object.entries(chats).sort((a,b) => a[1].date - b[1].date).map(contact => (
+        {chats != undefined && Object.entries(chats).sort((a,b) => b[1].date - a[1].date).map(contact => (
           <div className="contact" key={contact[1].uid}>
             <div className="dp">
               <img src={contact[1].photoURL} alt="" />
             </div>
-            {contact[1].displayName}
+            {contact[1].nickname ? contact[1].nickname : contact[1].displayName}
           </div>
         ))}
       </div>

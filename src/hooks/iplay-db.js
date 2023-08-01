@@ -18,42 +18,54 @@ export const addUser = async (user) => {
     const dp = user.photoURL != null ?
         user.photoURL.slice(0, position + 2) + '200' + user.photoURL.slice(position + 4) :
         user.photoURL
+    let location = {
+        lat: null,
+        long: null
+    }
+    console.log("adding user")
+    try {
+        const pos = await new Promise((res, rej) => {
+            navigator.geolocation.getCurrentPosition(res, rej, {
+                enableHighAccuracy : true,
+                timeout: 15 * 1000
+            })
+        })
 
-    navigator.geolocation.getCurrentPosition(async pos => {
-        const location = {  
+        location = {  
             lat: pos.coords.latitude,
             long: pos.coords.longitude
         }
+    
+    } catch (err) {
+        console.log(err)
+    }
 
-        await setDoc(doc(db, "users", user.uid), {
+    await setDoc(doc(db, "users", user.uid), {
+        uid: user.uid,
+        displayName: user.displayName,
+        photoURL: dp,
+        bio: "This user is new",
+        status: "online",
+        createdAt: serverTimestamp(),
+        currentLocation: location
+    })
+
+    await setDoc(doc(db, "chats", user.uid+user.uid), {
+        messages: []
+    })
+
+    await setDoc(doc(db, "contacts", user.uid), {
+        [user.uid]: {
             uid: user.uid,
             displayName: user.displayName,
+            nickname: "Just You",
             photoURL: dp,
-            bio: "This user is new",
-            status: "online",
-            createdAt: serverTimestamp(),
-            currentLocation: location
-        })
-
-        await setDoc(doc(db, "chats", user.uid+user.uid), {
-            messages: []
-        })
-
-        await setDoc(doc(db, "contacts", user.uid), {
-            [user.uid]: {
-                uid: user.uid,
-                displayName: user.displayName,
-                nickname: "Just You",
-                photoURL: dp,
-                date: serverTimestamp()
-            }
-        })
-    },(err) => {
-        console.log(err)
-    }, {
-        enableHighAccuracy : true,
-        timeout: 15 * 1000
+            date: serverTimestamp()
+        }
     })
+    
+    
+    console.log("end here")
 }
 
 export const updateUser = async (user, credential) => {
