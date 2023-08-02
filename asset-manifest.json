@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/iPlay/static/css/main.efa9339e.css",
-    "main.js": "/iPlay/static/js/main.7db913bf.js",
+    "main.css": "/iPlay/static/css/main.0a0b9d4a.css",
+    "main.js": "/iPlay/static/js/main.e26a9419.js",
     "static/media/settings.svg": "/iPlay/static/media/settings.fb724d98f6863e1ff1243314459c6b96.svg",
     "static/media/invite.svg": "/iPlay/static/media/invite.b5217741e0bfa22c125f6878626dcaa8.svg",
     "static/media/stats.svg": "/iPlay/static/media/stats.f23d4d725e12850432b364388df8e80e.svg",
@@ -18,6 +18,7 @@
     "static/media/church.svg": "/iPlay/static/media/church.4486f60d377728cceab8af3f863fe6af.svg",
     "static/media/mentorship.svg": "/iPlay/static/media/mentorship.12a9a76ea26d0840e364bfb8e9cb56da.svg",
     "static/media/friends.svg": "/iPlay/static/media/friends.193d8939547b5eb3b143a5ed333f7215.svg",
+    "static/media/mic.svg": "/iPlay/static/media/mic.0d58657769cd0f3740474aa0f5196267.svg",
     "static/media/vip.svg": "/iPlay/static/media/vip.9a0e7b16f98bbab80a831e5a5dd13eee.svg",
     "static/media/interest.svg": "/iPlay/static/media/interest.43dadcc2fd5777486934fdc5b3dda9d4.svg",
     "static/media/lovehome.svg": "/iPlay/static/media/lovehome.35e9eb5add3728a528fe32441d3113a5.svg",
@@ -33,11 +34,11 @@
     "index.html": "/iPlay/index.html",
     "static/media/contacts.svg": "/iPlay/static/media/contacts.07078969d5c1b1bcc4b10d5646d9b2a5.svg",
     "static/media/plus.svg": "/iPlay/static/media/plus.98b78bdf15ae67c5f3566692d063a143.svg",
-    "main.efa9339e.css.map": "/iPlay/static/css/main.efa9339e.css.map",
-    "main.7db913bf.js.map": "/iPlay/static/js/main.7db913bf.js.map"
+    "main.0a0b9d4a.css.map": "/iPlay/static/css/main.0a0b9d4a.css.map",
+    "main.e26a9419.js.map": "/iPlay/static/js/main.e26a9419.js.map"
   },
   "entrypoints": [
-    "static/css/main.efa9339e.css",
-    "static/js/main.7db913bf.js"
+    "static/css/main.0a0b9d4a.css",
+    "static/js/main.e26a9419.js"
   ]
 }
