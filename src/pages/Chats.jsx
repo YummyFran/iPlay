@@ -5,10 +5,12 @@ import { getContact } from '../hooks/iplay-db'
 import { useUser } from '../providers/UserProvider'
 import { db } from '../utils/firebase'
 import { doc, onSnapshot } from 'firebase/firestore'
+import { useNavigate } from 'react-router'
 
 const Chats = () => {
   const [user] = useUser()
   const [chats, setChats] = useState()
+  const nav = useNavigate()
 
   // console.log(chats)
   
@@ -32,9 +34,10 @@ const Chats = () => {
       </div>
       <div className="chat-list">
         {chats != undefined && Object.entries(chats).sort((a,b) => b[1].date - a[1].date).map(contact => (
-          <div className="contact" key={contact[1].uid}>
+          <div className="contact" key={contact[1].uid} onClick={() => nav(`${contact[0]}`)}>
             <div className="dp">
-              <img src={contact[1].photoURL} alt="" />
+              {console.log()}
+              <img src={contact[1].photoURL} className={contact[1].photoURL?.search("firebasestorage") > 0 ? "default-avatar" : ""} />
             </div>
             {contact[1].nickname ? contact[1].nickname : contact[1].displayName}
           </div>

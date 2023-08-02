@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router'
 import { updateProfile } from 'firebase/auth'
 import { useUser } from '../providers/UserProvider'
-import { updateUser } from '../hooks/iplay-db'
+import { updateContactPhoto, updateUser } from '../hooks/iplay-db'
 
 import Loading from '../components/Loading'
 import Avatars from '../components/GetStarted/Avatars'
@@ -49,6 +49,8 @@ const GetStarted = () => {
                 photoURL: avatar[selectedAvatar].props.el,
                 defaultAvatar: true
             })
+
+            await updateContactPhoto(user)
             
             navigate("/")
         } catch (err) {

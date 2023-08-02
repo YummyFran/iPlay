@@ -9,7 +9,6 @@ import {
     query, 
     orderBy, 
     serverTimestamp,
-    onSnapshot,
 } from "firebase/firestore"
 import { db } from "../utils/firebase"
 
@@ -22,7 +21,7 @@ export const addUser = async (user) => {
         lat: null,
         long: null
     }
-    console.log("adding user")
+
     try {
         const pos = await new Promise((res, rej) => {
             navigator.geolocation.getCurrentPosition(res, rej, {
@@ -55,7 +54,7 @@ export const addUser = async (user) => {
     })
 
     await setDoc(doc(db, "contacts", user.uid), {
-        [user.uid]: {
+        [`${user.uid}${user.uid}`]: {
             uid: user.uid,
             displayName: user.displayName,
             nickname: "Just You",
@@ -116,8 +115,20 @@ export const createContact = async (currentUser, user, combinedId) => {
     })
 }
 
-export const getContact = (currentUser) => {
-    const res =  onSnapshot(doc(db, "contacts", currentUser), res => {
-        return res.data()   
+export const getContact = async (currentUser, combinedId) => {
+    const res = await getDoc(doc(db, "contacts", currentUser.uid))
+    return res.data()[combinedId]
+}
+
+export const updateContact = async (currentUser, combinedId, nickname = "") => {
+    await updateDoc(doc(db, "contacts", currentUser.uid), {
+        [`${combinedId}.date`] : serverTimestamp(),
+        [`${combinedId}.nickname`] : nickname
+    })
+}
+
+export const updateContactPhoto = async (currentUser) => {
+    await updateDoc(doc(db, "contacts", currentUser.uid), {
+        [`${currentUser.uid}${currentUser.uid}.photoURL`] : currentUser.photoURL
     })
 }

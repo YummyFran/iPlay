@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
-import { createChats, createContact, getChats, getUserData } from '../hooks/iplay-db'
+import { createChats, createContact, getChats, getUserData, updateContact } from '../hooks/iplay-db'
 
 import invite from '../assets/me.svg'
 import chat from '../assets/chats.svg'
@@ -13,9 +13,10 @@ const UserProfile = () => {
     const [targetUser, setTargetUser] = useState()
     const [currUser] = useUser()
     const { uid } = useParams()
-    const back = useNavigate()
+    const nav = useNavigate()
 
     const getDistance = (lat1, lon1, lat2, lon2) => {
+        if([lat1,lon1,lat2,lon2].includes(null)) return NaN
         const earthRadiusKm = 6371;
         const toRadians = (degrees) => degrees * (Math.PI / 180);
         const dLat = toRadians(lat2 - lat1);
@@ -38,6 +39,8 @@ const UserProfile = () => {
             user.uid + currUser.uid
         
         try {
+            nav(`/chats/${combinedId}`)
+
             const res = await getChats(combinedId)
             const chatExist = res.exists()
 
@@ -46,9 +49,8 @@ const UserProfile = () => {
                 await createChats(combinedId)
                 await createContact(currUser, user, combinedId)
             } else {
-                console.log("already created")
+                await updateContact(currUser, combinedId)
             }
-            back('/chats')
         } catch (err) {
             console.log(err)
         }
@@ -85,13 +87,13 @@ const UserProfile = () => {
                     <img src={invite} alt="add-friend" />
                     {currUser?.uid === uid ? 'Send Gift' : 'Add Friend'}
                 </button>
-                <button className="chat" onClick={handleChat}>
+                <button className="chat" onClick={() => currUser && user && handleChat()}>
                     <img src={chat} alt="chat" />
                     Chat
                 </button>
             </div>
             <div className="top-options">
-                <div onClick={() => back(-1)} className="back">{'<'}</div>
+                <div onClick={() => nav(-1)} className="back">{'<'}</div>
                 <div className="menu">{currUser?.uid === uid ? 'Edit' : '· · ·'}</div>
             </div>
             <div className="picture">
@@ -108,7 +110,7 @@ const UserProfile = () => {
                         </div>
                     </div>
                     <div className="geo-position">
-                        <div className="distance">{distance <= 0 ? "" : `${distance}km`}</div>
+                        <div className="distance">{!isNaN(distance) && (distance <= 0 ? "" : `${distance}km`)}</div>
                         <div className="country">Philippines</div>
                     </div>
                 </div>

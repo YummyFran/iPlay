@@ -1,0 +1,84 @@
+.conversation {
+    background-color: #f1f1f1;
+}
+
+.conversation .top {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.conversation .top .display-name {
+    margin-right: auto;
+    font-size: var(--font-huge);
+}
+
+.conversation .top .back {
+    font-size: var(--font-bigger);
+    font-weight: 100;
+}
+
+.conversation .top .menu {
+    font-weight: 800;
+}
+
+.conversation .convo {
+    height: 200vh;
+}
+
+.conversation .bottom {
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    place-items: center;
+}
+
+.conversation .bottom input {
+    padding: 0.8rem 1rem;
+    border-radius: 2rem;
+    background-color: #f1f1f1;
+    font-size: var(--font-normal);
+    border: none;
+    outline-color: var(--color-accent);
+    color: var(--color-accent);
+    width: 100%;
+}
+
+.conversation .bottom div {
+    display: flex;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.conversation .bottom div img {
+    width: 1.5rem;
+}
+
+.conversation .bottom div button {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    font-size: var(--font-normal);
+}
+
+.conversation .bottom .more.send {
+    background-color: var(--color-accent);
+    padding: 0.7rem 1rem;
+    color: white;
+    border-radius: 4rem;
+}
+
