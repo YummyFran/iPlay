@@ -9,6 +9,8 @@ import {
     query, 
     orderBy, 
     serverTimestamp,
+    arrayUnion,
+    Timestamp,
 } from "firebase/firestore"
 import { db } from "../utils/firebase"
 
@@ -63,8 +65,6 @@ export const addUser = async (user) => {
         }
     })
     
-    
-    console.log("end here")
 }
 
 export const updateUser = async (user, credential) => {
@@ -101,6 +101,16 @@ export const createChats = async (combinedId) => {
 export const getChats = async (combinedId) => {
     const res = await getDoc(doc(db, "chats", combinedId))
     return res
+}
+
+export const updateChats = async (combinedId, currentUser, text) => {
+    await updateDoc(doc(db, "chats", combinedId), {
+        messages: arrayUnion({
+            time: Timestamp.now(),
+            senderUid: currentUser?.uid || null,
+            text
+        })
+    })
 }
 
 export const createContact = async (currentUser, user, combinedId) => {

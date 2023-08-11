@@ -34,7 +34,7 @@ const Explore = () => {
                                     <span>{user.bio}</span>
                                 </div>
                             </div>
-                            <div className="status">{user.status}</div>
+                            <div className={`status ${user.status}`}>{user.status}</div>
                         </div>
                     </Link>
                 ))}

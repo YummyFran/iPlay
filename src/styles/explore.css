@@ -53,9 +53,17 @@
 
 .status {
     font-size: var(--font-smaller);
-    background-color: #4acb4a80;
-    color: #458f45;
     padding: 0.2em 0.7em;
     border-radius: 1em;
     font-weight: 400;
+}
+
+.status.online {
+    background-color: #4acb4a80;
+    color: #458f45;
+}
+
+.status.offline {
+    background-color: #adb5ad88;
+    color: #4f4f4f;
 }

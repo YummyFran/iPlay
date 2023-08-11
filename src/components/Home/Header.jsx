@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useState } from 'react'
 import { auth } from '../../utils/firebase'
 import { signOut } from 'firebase/auth'
 import { useUser } from '../../providers/UserProvider'
-import { getUserData } from '../../hooks/iplay-db'
+import { getUserData, updateUser } from '../../hooks/iplay-db'
 import { Link } from 'react-router-dom'
 
 import ranking from '../../assets/ranking.svg'
@@ -45,6 +45,13 @@ const Header = () => {
         )
     })
 
+    const handleSignOut = async () => {
+        await updateUser(user, {
+            status: 'offline'
+        })
+        signOut(auth)
+    }
+
     useLayoutEffect(() => {
         getUserData(user.uid)
             .then(res => setCurrUser(res))
@@ -64,7 +71,7 @@ const Header = () => {
                     <p className="header--name">{(currUser ? currUser : user).displayName.split(' ')[0]}</p>
                 </div>
                 <div className="header--events">
-                    <button onClick={() => signOut(auth)}>Log out</button>
+                    <button onClick={handleSignOut}>Log out</button>
                 </div>
             </div>
             <div className="header--links">

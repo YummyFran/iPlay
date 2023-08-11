@@ -30,7 +30,30 @@
 }
 
 .conversation .convo {
-    height: 200vh;
+    padding: 4.5rem 1rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.conversation .convo .chat {
+    padding: 0.6rem 1rem;
+}
+
+.conversation .convo .chat.receiver {
+    align-self: flex-start;
+    background-color: var(--color-midtone);
+    border-radius: 1rem 1rem 1rem 0;
+    color: var(--color-gray);
+}
+
+.conversation .convo .chat.sender {
+    align-self: end;
+    background-color: var(--color-accent);
+    border-radius: 1rem 1rem 0 1rem;
+    color: white;
 }
 
 .conversation .bottom {
@@ -80,5 +103,4 @@
     padding: 0.7rem 1rem;
     color: white;
     border-radius: 4rem;
-}
-
+}   

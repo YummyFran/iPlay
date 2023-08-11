@@ -17,7 +17,7 @@ const Chats = () => {
   useLayoutEffect(() => {
     if(!user) return
     const unsub =  onSnapshot(doc(db, "contacts", user.uid), res => {
-      setChats(res.data())  
+      setChats(res.data())
     })
 
     return () => {
@@ -36,7 +36,7 @@ const Chats = () => {
         {chats != undefined && Object.entries(chats).sort((a,b) => b[1].date - a[1].date).map(contact => (
           <div className="contact" key={contact[1].uid} onClick={() => nav(`${contact[0]}`)}>
             <div className="dp">
-              {console.log()}
+              {console.log(contact)}
               <img src={contact[1].photoURL} className={contact[1].photoURL?.search("firebasestorage") > 0 ? "default-avatar" : ""} />
             </div>
             {contact[1].nickname ? contact[1].nickname : contact[1].displayName}

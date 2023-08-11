@@ -33,14 +33,11 @@ const UserProfile = () => {
     }
 
     const handleChat = async () => {
-        console.log("chat clicked")
         const combinedId = currUser.uid > user.uid ? 
             currUser.uid + user.uid :
             user.uid + currUser.uid
         
         try {
-            nav(`/chats/${combinedId}`)
-
             const res = await getChats(combinedId)
             const chatExist = res.exists()
 
@@ -48,13 +45,14 @@ const UserProfile = () => {
                 console.log("creating")
                 await createChats(combinedId)
                 await createContact(currUser, user, combinedId)
+                await createContact(user, currUser, combinedId)
             } else {
                 await updateContact(currUser, combinedId)
             }
+            nav(`/chats/${combinedId}`)
         } catch (err) {
             console.log(err)
         }
-        
     }
 
     useEffect(() => {
