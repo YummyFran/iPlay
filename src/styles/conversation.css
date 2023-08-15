@@ -5,6 +5,8 @@
 .conversation .top {
     background-color: white;
     display: flex;
+    max-width: var(--max-w);
+    margin-inline: auto;
     align-items: center;
     gap: 1rem;
     padding: 0.8rem 1.5rem;
@@ -59,6 +61,8 @@
 .conversation .bottom {
     background-color: white;
     position: fixed;
+    max-width: var(--max-w);
+    margin-inline: auto;
     bottom: 0;
     left: 0;
     right: 0;

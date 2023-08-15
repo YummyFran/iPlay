@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider, createHashRouter } from 'react-router-dom'
+import { Route, createRoutesFromElements, RouterProvider, createHashRouter } from 'react-router-dom'
 
 import Login from './pages/Login'
 import Signup from './pages/Signup'

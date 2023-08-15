@@ -2,15 +2,17 @@ import React, { useState, useEffect } from 'react'
 import { getUsers } from '../../hooks/iplay-db';
 import { useUser } from '../../providers/UserProvider';
 import { Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 
 const Explore = () => {
     const [currUser] = useUser()
-    const [newUsers, setNewUsers] = useState()
 
-    useEffect(()=>{
-        getUsers()
-        .then(users => setNewUsers(users))
-    }, [])
+    const {data: newUsers, isLoading} = useQuery({
+        queryKey: ['users'],
+        queryFn: () => getUsers()
+    })
+
+    if(isLoading) return 'loading...'
 
     return (
         <div className='explore'>
@@ -20,7 +22,7 @@ const Explore = () => {
             </div>
             <div className="explore--list">
                 {newUsers && newUsers.map(user => (
-                    !(currUser.uid == user.uid) &&
+                    !(currUser.uid === user.uid) &&
                     <Link to={`user/${user.uid}`} key={user.uid}>
                         <div className="explore--user">
                             <div className="profile">

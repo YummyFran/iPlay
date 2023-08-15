@@ -1,5 +1,5 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router'
+import { useParams } from 'react-router'
 
 import { getContact, updateChats } from '../hooks/iplay-db'
 import { useUser } from '../providers/UserProvider'
@@ -7,6 +7,7 @@ import Header from '../components/Convo/Header'
 import Chatbox from '../components/Convo/Chatbox'
 import { db } from '../utils/firebase'
 import { doc, onSnapshot } from 'firebase/firestore'
+import { useQuery } from '@tanstack/react-query'
 
 const Conversation = () => {
     const [message, setMessage] = useState("")
@@ -26,25 +27,19 @@ const Conversation = () => {
         setMessage(e.target.value)
     }
 
-    useEffect(() => {
-        window.scrollTo(0, document.body.scrollHeight);
-    }, [])
-
-    useLayoutEffect(() => {
-        if(!user) return
-        const unsub =  onSnapshot(doc(db, "chats", roomID), res => {
-          setChats(res.data())
-        })
+    useQuery({
+        queryKey: ['convo', roomID],
+        queryFn: () => onSnapshot(
+            doc(db, "chats", roomID),
+            res => setChats(res.data())
+        )
+    })
     
-        return () => {
-          unsub()
-        }
-      }, [user])
-
     useLayoutEffect(() => {
-        console.log('uselayout')
+        window.scrollTo(0, document.body.scrollHeight);
+
         currUser && getContact(currUser, roomID).then(res => setUser(res))
-    }, [loading])
+    }, [loading, currUser, roomID])
 
     return (
         <div className='conversation'>

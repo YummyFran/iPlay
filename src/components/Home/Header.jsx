@@ -11,7 +11,7 @@ import tasks from '../../assets/tasks.svg'
 import friends from '../../assets/friends.svg'
 
 const Header = () => {
-    const [user, loading] = useUser()
+    const [user] = useUser()
     const [currUser, setCurrUser] = useState(null)
 
     const links = [
@@ -55,7 +55,7 @@ const Header = () => {
     useLayoutEffect(() => {
         getUserData(user.uid)
             .then(res => setCurrUser(res))
-    }, [])
+    }, [user])
     
     return (
         <div className='header'>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
-import { Link } from 'react-router-dom'
 import { createChats, createContact, getChats, getUserData, updateContact } from '../hooks/iplay-db'
 
 import invite from '../assets/me.svg'
@@ -62,7 +61,7 @@ const UserProfile = () => {
         
         currUser && getUserData(currUser.uid)
         .then(res => setTargetUser(res))
-    }, [])
+    }, [currUser, uid])
 
     useEffect(() => {
         

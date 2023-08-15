@@ -5,7 +5,7 @@ import NavBar from '../components/NavBar'
 import { useUser } from '../providers/UserProvider'
 
 const Layout = () => {
-  const [user, loading] = useUser()
+  const [user] = useUser()
 
   if(!user) return <Navigate to="/login"/>
   return (

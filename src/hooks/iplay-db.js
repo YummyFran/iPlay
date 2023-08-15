@@ -63,8 +63,7 @@ export const addUser = async (user) => {
             photoURL: dp,
             date: serverTimestamp()
         }
-    })
-    
+    }) 
 }
 
 export const updateUser = async (user, credential) => {
