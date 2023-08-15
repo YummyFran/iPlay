@@ -80,9 +80,9 @@ To get started, simply sign up for an account, set up your profile, and start ex
 Our platform is built using cutting-edge web technologies to ensure a smooth and seamless experience for our users. Some of the technologies used include:
 
 - Front-end: React.js, CSS
-- State Management: Redux
+- State Management: Redux, React Query
 - Back-end: Firebase
-- Real-time Communication: Firestore
+- Real-time Communication: Firebase Firestore
 
 
 ## Contributing
