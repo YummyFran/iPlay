@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/iPlay/static/css/main.2230acd4.css",
-    "main.js": "/iPlay/static/js/main.17e7a68a.js",
+    "main.css": "/iPlay/static/css/main.96843e3c.css",
+    "main.js": "/iPlay/static/js/main.40eb7a92.js",
     "static/media/settings.svg": "/iPlay/static/media/settings.fb724d98f6863e1ff1243314459c6b96.svg",
     "static/media/invite.svg": "/iPlay/static/media/invite.b5217741e0bfa22c125f6878626dcaa8.svg",
     "static/media/stats.svg": "/iPlay/static/media/stats.f23d4d725e12850432b364388df8e80e.svg",
@@ -34,11 +34,11 @@
     "index.html": "/iPlay/index.html",
     "static/media/contacts.svg": "/iPlay/static/media/contacts.07078969d5c1b1bcc4b10d5646d9b2a5.svg",
     "static/media/plus.svg": "/iPlay/static/media/plus.98b78bdf15ae67c5f3566692d063a143.svg",
-    "main.2230acd4.css.map": "/iPlay/static/css/main.2230acd4.css.map",
-    "main.17e7a68a.js.map": "/iPlay/static/js/main.17e7a68a.js.map"
+    "main.96843e3c.css.map": "/iPlay/static/css/main.96843e3c.css.map",
+    "main.40eb7a92.js.map": "/iPlay/static/js/main.40eb7a92.js.map"
   },
   "entrypoints": [
-    "static/css/main.2230acd4.css",
-    "static/js/main.17e7a68a.js"
+    "static/css/main.96843e3c.css",
+    "static/js/main.40eb7a92.js"
   ]
 }
