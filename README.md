@@ -11,7 +11,7 @@ Visit the website: [Link to iPlay Website](https://yummyfran.github.io/iPlay)
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Features](#features)
+- [Features and Scheme](#features-and-scheme)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
@@ -19,7 +19,7 @@ Visit the website: [Link to iPlay Website](https://yummyfran.github.io/iPlay)
 - [Contact](#contact)
 
 
-## Features
+## Features and Scheme
 
 ### Social Media Interaction
 
